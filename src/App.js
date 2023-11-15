@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+import Home from './components/Home';
+import Error from './components/Error';
+import Live from './components/Live';
+// import ListRacer from './components/ListRacer';
+// import EditRacer from './components/EditRacer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+          <div className="bgColor">
+              <Header />
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/*" element={<Error />} />
+                  <Route path="/live" element={<Live />} />
+                  {/* <Route path="/leaderboard" element={<ListRacer />} />
+                  <Route path="/addTiming" element={<EditRacer />} /> */}
+              </Routes>
+              <Footer />
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;
