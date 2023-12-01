@@ -89,7 +89,18 @@ function Live() {
                         </thead>
                         <tbody className="text-white">
                             {leaderboard.map((racer, index) => (
-                                <tr key={index} className="border-b-2 border-green-600">
+                                // If the racer is the first, the background is gold 
+                                // If the racer is the second, the background is silver
+                                // If the racer is the third, the background is bronze
+                                // Else, the background is green
+
+                                // <tr key={index} className="border-b-2 border-green-600">
+                                //     <td>{index + 1}</td>
+                                //     <td>{racer.RacerName}</td>
+                                //     <td>{racer.Duration}</td>
+                                // </tr>
+
+                                <tr key={index} className={index === 0 ? "border-b-2 border-green-600 bg-yellow-700" : index === 1 ? "border-b-2 border-green-600 bg-gray-400" : index === 2 ? "border-b-2 border-green-600 bg-yellow-900" : "border-b-2 border-green-600"}>
                                     <td>{index + 1}</td>
                                     <td>{racer.RacerName}</td>
                                     <td>{racer.Duration}</td>
